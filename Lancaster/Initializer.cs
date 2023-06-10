@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using BepInEx;
 using HarmonyLib;
+using Lancaster.Patchers;
 using Lancaster.Utils;
 
 namespace Lancaster;
 
+/// <summary>
+/// Initializer of the Lancaster Lib.
+/// </summary>
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
 public class Initializer : BaseUnityPlugin
 {
@@ -21,6 +25,6 @@ public class Initializer : BaseUnityPlugin
     {
         InternalLogger.Log($"Loading v{PluginInfo.PLUGIN_VERSION}", BepInEx.Logging.LogLevel.Info);
 
-
+        EnumPatcher.Patch(_harmony);
     }
 }
